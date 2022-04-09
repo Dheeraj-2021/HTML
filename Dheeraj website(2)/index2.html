@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style2.css">
+</head>
+<body>
+    <div class="main_div">
+        <div class="music_container">
+            <h2 id="title">lotus lane</h2>
+            <h3>The loyal</h3>
+            <div class="image_container">
+                <img src="images/nature1.jpg" alt=""/>
+            </div>
+            <audio src="images/01 - A2 - Tum Hi Ho [DJMaza].mp3"></audio>
+      <!----music controls-------->
+      <div class="music_controls">
+
+<i class="fas fa-backward" id="prev" title="previous"></i>
+<i class="fas fa-play main_button" id="play" title="play"></i>
+<i class="fas fa-forward" id="next" title="next"></i>
+      </div>
+        </div>
+    </div>
+
+    <script>
+const music=document.querySelector("audio");
+const img=document.querySelector("img");
+const play=document.getElementById("play");
+const play=document.getElementById("artist");
+const play=document.getElementById("title");
+const play=document.getElementById("prev");
+const play=document.getElementById("next");
+
+const songs=[
+   { name:"Tum Hi Ho",
+    title:"lotus lane",
+    artist:"loyalist"
+   },
+   { name:"thapa-1",
+    title:"lotus lane",
+    artist:"loyalist"
+   },
+   { name:"thapa-1",
+    title:"lotus lane",
+    artist:"loyalist"
+   },
+
+]
+let isplaying=false;
+play.addEventListener("click",()=>{
+    music.play();
+    play.classList.replace("fa-play","fa-pause");
+    img.classList.add("anime");
+
+});
+
+play.addEventListener("click",()=>{
+    isplaying=false;
+    music.pause();
+    play.classList.replace("fa-pause","fa-play");
+    img.classList.remove("anime");
+
+});
+play.addEventListener("click",()=>{
+  isplaying ? pausemusic() :playMusic();
+});
+
+const nextsong=()=>{
+    songIndex=(songIndex-1+ songs.length)%songs.length;
+    loadSong(songs[songIndex]);
+    playMusic();
+
+}
+next.addEventListener("click",nextsong);
+next.addEventListener("click",prevsong);
+    </script>
+</body>
+</html>
